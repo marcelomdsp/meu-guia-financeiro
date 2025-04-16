@@ -42,6 +42,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 1rem;
 }
 .produtos {
   width: 90%;
@@ -60,10 +61,11 @@ main {
   text-align: center;
   transition: all 0.4s ease;
   opacity: 1;
-  transform: scale(1);
+  transition: 0.5s ease, box-shadow 0.5s ease;
 }
 .produto:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  transform: translateY(-5px);
 }
 .produto.oculto {
   display: none;
@@ -77,21 +79,25 @@ main {
   margin-top: 2rem;
   font-size: 1rem;
   height: 55px;
-  color:  #1e293b;
+  color: #1e293b;
 }
 .produto p {
   font-size: 0.95rem;
-  color:  #1e293b;
+  color: #1e293b;
   height: 110px;
 }
 .produto a {
   display: inline-block;
   margin-top: 1rem;
-  padding: 0.5rem 1rem;
   background: #3b82f6;
   color: white;
   border-radius: 5px;
   text-decoration: none;
+  padding: 0.75rem 1.25rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s ease;
 }
 .produto a:hover {
   background: #2a5eb3;
@@ -122,5 +128,17 @@ span {
   width: 100%;
   text-align: center;
 }
+.produto.animado {
+  animation: aparecer 0.5s ease;
+}
 
-
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
